@@ -2,20 +2,34 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>first php page</title>
+    <title>first php page</title>
 </head>
 
 <body>
 <?php
 
-$name ="Myroslav";
-$age=25;
+$name = "Myroslav";
+$age = 25;
 
 echo "$name";
 
 echo "<br>car";
 
 echo "my fiend's name is - $name";
+
+if (isset($c))
+{
+    echo "<br>с існує";
+}
+else
+{
+    echo "<br>с не існує";
+}
+$v=10;
+unset($v);
+echo "<br>$v";
+
+
 
 ?>
 
