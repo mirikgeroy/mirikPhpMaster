@@ -7,12 +7,6 @@
 
 <body>
 <?php
-/**
- * Created by PhpStorm.
- * User: Татьяна
- * Date: 12.05.2016
- * Time: 9:37
- */
 foreach($_POST as $element) {
     $name = $element;
 

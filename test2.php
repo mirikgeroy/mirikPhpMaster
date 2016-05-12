@@ -8,21 +8,29 @@
 <body>
 
 <?php
-/*
- * Created by PhpStorm.
- * User: Татьяна
- * Date: 12.05.2016
- * Time: 9:37
- */
-echo '<form action = "test3.php" method = "post" name = "form1" target = "_blank" >
 
- ';
-$i=1;
-while ($i<30){
-echo "<p > введіть ваше імя #$i:<br ><input name = 'name $i' type = 'text' size = '20' </p >";
+echo '<form action = "test3.php" method = "post" name = "form1" target = "_blank" > ';
+$i = 1;
+while ($i < 30) {
+////mogna tak
+//echo "<p > введіть ваше імя #$i:<br ><input name = 'name $i' type = 'text' size = '20' </p >";
+////a mogna tak
+echo '<p > введіть ваше імя #' . $i . ':<br ><input name = "name ' . $i . '" type = "text" size = "20" </p >';
+////a mogna tak
+//    echo sprintf(
+//        '<p > введіть ваше імя #%s:<br ><input name = "name %s" value="%s" type = "text" size = "20" </p >',
+//        $i,
+//        $i,
+//        'стицько');
+    echo
+    '<p>
+    <input type="submit" value="відправити">
+
+</p>
+';
     $i++;
-}
-echo '<p ><input type = "submit" value="если мы не указываем название этой кнопки, то оно бьудет просто отправить запрос"></p ></form>';
+} //<-вейрайся назад и вчи що робить ця скобка
+echo '</form>';
 ?>
 
 </body>
