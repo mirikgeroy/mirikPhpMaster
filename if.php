@@ -33,6 +33,6 @@ else
 
 
 ?>
-
+<a href="test4.php" target="_blank">сторінка test4.php</a>
 </body>
 </html>
