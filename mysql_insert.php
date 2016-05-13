@@ -7,14 +7,23 @@
 
 <body>
 <?php
+if (isset($_post['name'])) {
+    $name = $_POST['name'];
+}
+if (isset($_post['lastname'])) {
+    $lastname = $_POST['lastname'];
+}
+if (isset($_post['posada'])) {
+    $posada = $_POST['posada'];
+}
 
 $db = mysqli_connect("localhost", "alex", "123");
-
+mysqli_set_charset($db, 'utf8');
 mysqli_select_db($db, "firstbd");
 
-$result = mysqli_query($db,"INSERT INTO firma (name, lastname, posada) VALUE ('андрій', 'андрієвський', 'водій')");
+$result = mysqli_query($db, "INSERT INTO firma (name, lastname, posada) VALUE ('$name', '$lastname', '$posada')");
 if ($result == 'true') {
-    echo "інфо в базу добаллено успішно!";
+    echo "інфо в базу добалено успішно!";
 } else {
     echo "інфо в базу не добаллено!";
 }

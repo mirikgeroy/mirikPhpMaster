@@ -8,7 +8,10 @@
 <body>
 
 <form action="mysql_insert.php" method="post" name="form">
-    <p>введіть імя співробітника<input name="name"></p>
+    <p>введіть імя співробітника:<br><input name="name" type="text" size="20" maxlength="40"></p>
+    <p>Введіть прізвище:<br><input name="lastname" type="text" size="20" maxlength="40"></p>
+    <p>Посада:<br><input name="lastname" type="text" size="20" maxlength="40"></p>
+    <p><input name="submit" type="submit" value="занести нового співробітника"></p>
 </form>
 
 </body>

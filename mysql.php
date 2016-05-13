@@ -9,7 +9,6 @@
 <?php
 
 $db = mysqli_connect("localhost", "alex", "123");
-
 mysqli_select_db($db, "firstbd");
 mysqli_set_charset($db,'utf8');
 $result = mysqli_query($db, "SELECT * from firma ");
