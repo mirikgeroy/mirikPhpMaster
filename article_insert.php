@@ -19,9 +19,9 @@ if (isset($_POST['tegs'])) {
 }
 $db = mysqli_connect("localhost", "alex", "123");
 mysqli_set_charset($db, 'utf8');
-mysqli_select_db($db, "firstbd");
+mysqli_select_db($db, "ARTICLE");
 //$date = strtotime('today');
-$result = mysqli_query($db, "INSERT INTO firma (name, lastname, posada) VALUE ('$title', '$text', '$tegs')");
+$result = mysqli_query($db, "INSERT INTO statti (date, title, text, tegs) VALUE (date('d.m.Y H:i:s'), '$title', '$text', '$tegs')");
 if ($result == 'true') {
     echo "інфо в базу добалено успішно";
 } else {
