@@ -15,13 +15,13 @@ $result = mysqli_query($db, "SELECT * from firma ");
 $myrow = mysqli_fetch_array($result);
 
 do {
-    echo "сотрудник № " . $myrow['id'] . "<br>";
-    echo $myrow['name'] . "<br>";
-    echo $myrow['lastname'] . "<br>";
-    echo $myrow['posada'] . "<br>";
+//    echo "сотрудник № " . $myrow['id'] . "<br>";
+//    echo $myrow['name'] . "<br>";
+//    echo $myrow['lastname'] . "<br>";
+//    echo $myrow['posada'] . "<br>";
 
-//    printf("сотрудник № %s<br>%s<br>%s<br>%s<br>",$myrow['id'],
-//$myrow['name'],$myrow['lastname'],$myrow['posada']);
+    printf("сотрудник № %s<br>%s<br>%s<br>%s<br>",$myrow['id'],
+$myrow['name'],$myrow['lastname'],$myrow['posada']);
 
 } while ($myrow = mysqli_fetch_array($result));
 ?>

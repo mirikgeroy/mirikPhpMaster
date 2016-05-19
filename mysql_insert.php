@@ -7,16 +7,16 @@
 
 <body>
 <?php
-if (isset($_post['name'])) {
+if (isset($_POST['name'])) {
     $name = $_POST['name'];
 }
-if (isset($_post['lastname'])) {
+if (isset($_POST['lastname'])) {
     $lastname = $_POST['lastname'];
 }
-if (isset($_post['posada'])) {
+if (isset($_POST['posada'])) {
     $posada = $_POST['posada'];
 }
-
+//$name="mnb";
 $db = mysqli_connect("localhost", "alex", "123");
 mysqli_set_charset($db, 'utf8');
 mysqli_select_db($db, "firstbd");

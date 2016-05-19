@@ -2,17 +2,23 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>зєднуємося з БД</title>
+    <title>Форма для статті</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-<form action="mysql_insert.php" method="POST" name="form">
+
+
+<form action="mysql_insert.php" method="post" name="form">
     <p>введіть імя співробітника:<br><input name="name" type="text" size="20" maxlength="40"></p>
     <p>Введіть прізвище:<br><input name="lastname" type="text" size="20" maxlength="40"></p>
-    <p>Посада:<br><input name="posada" type="text" size="20" maxlength="40"></p>
+    <p>Посада:<br><input name="lastname" type="text" size="20" maxlength="40"></p>
     <p><input name="submit" type="submit" value="занести нового співробітника"></p>
 </form>
+
+
 
 </body>
 </html>
