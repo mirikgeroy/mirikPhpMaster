@@ -1,42 +1,40 @@
--- phpMyAdmin SQL Dump
--- version 3.2.3
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: May 19, 2016 at 05:13 PM
--- Server version: 5.1.40
--- PHP Version: 5.2.12
+/*
+ Navicat Premium Data Transfer
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+ Source Server         : mySql
+ Source Server Type    : MySQL
+ Source Server Version : 50542
+ Source Host           : localhost
+ Source Database       : ARTICLE
 
+ Target Server Type    : MySQL
+ Target Server Version : 50542
+ File Encoding         : utf-8
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+ Date: 05/27/2016 22:26:59 PM
+*/
 
---
--- Database: `ARTICLE`
---
+SET NAMES utf8;
+SET FOREIGN_KEY_CHECKS = 0;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `statti`
---
-
-CREATE TABLE IF NOT EXISTS `statti` (
-  `id` int(5) NOT NULL DEFAULT '0',
-  `date` date NOT NULL,
+-- ----------------------------
+--  Table structure for `statti`
+-- ----------------------------
+DROP TABLE IF EXISTS `statti`;
+CREATE TABLE `statti` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `date` int(111) NOT NULL,
   `title` varchar(200) NOT NULL,
   `text` text NOT NULL,
   `tegs` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=cp1251;
 
---
--- Dumping data for table `statti`
---
+-- ----------------------------
+--  Records of `statti`
+-- ----------------------------
+BEGIN;
+INSERT INTO `statti` VALUES ('1', '0', '', '', ''), ('2', '1464376143', 'sdf', 'sdf', 'sdf'), ('3', '1464376321', 'dfgd', 'dfg', '234'), ('4', '1464377017', 'dfgd', 'dfg', '234'), ('5', '1464377076', 'Пизда', 'Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана Ебана ', 'ываывбы,ывывб,Ывыв'), ('6', '1464377180', '', '', '');
+COMMIT;
 
-INSERT INTO `statti` (`id`, `date`, `title`, `text`, `tegs`) VALUES
-(0, '0000-00-00', '', '', '');
+SET FOREIGN_KEY_CHECKS = 1;

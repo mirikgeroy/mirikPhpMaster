@@ -17,25 +17,33 @@ if (isset($_POST['text'])) {
 if (isset($_POST['tegs'])) {
     $tegs = $_POST['tegs'];
 }
-$db = mysqli_connect("localhost", "alex", "123");
+if (!$db = mysqli_connect("localhost", "alex", "123")) {
+    die('Database is no connected');
+}
+//var_dump($db);
 mysqli_set_charset($db, 'utf8');
 mysqli_select_db($db, "ARTICLE");
 //$date = strtotime('today');
-$result = mysqli_query($db, "INSERT INTO statti (date, title, text, tegs) VALUE (date('d.m.Y H:i:s'), '$title', '$text', '$tegs')");
+$time = time();
+$sql = "INSERT INTO statti (`date`, `title`, `text`, `tegs`) VALUE ($time, '$title', '$text', '$tegs')";
+echo $sql;
+$result = mysqli_query($db, $sql);
 if ($result == 'true') {
     echo "інфо в базу добалено успішно";
 } else {
+    var_dump(mysqli_error($db));
     echo "інфо в базу не добалено!";
 }
 
-//$resul = mysqli_query($db, "SELECT * from statti");
-//$myrow = mysqli_fetch_array($resul);
-//do {
-//
-//    printf("<br> Стаття № %s<br>%s<br>%s<br>%s<br>",$myrow['id'],
-//        $myrow['date'],$myrow['title'],$myrow['text'], $myrow['tegs']);
-//
-//} while ($myrow = mysqli_fetch_array($resul));
+
+$resul = mysqli_query($db, "SELECT * from statti");
+$myrow = mysqli_fetch_array($resul);
+do {
+
+    printf("<br> Стаття № %s<br>%s<br>%s<br>%s<br>",$myrow['id'],
+        $myrow['date'],$myrow['title'],$myrow['text'], $myrow['tegs']);
+
+} while ($myrow = mysqli_fetch_array($resul));
 
 ?>
 
