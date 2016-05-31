@@ -1,7 +1,11 @@
 <?php
 
-$array = array(3, 7, 2, 8, 1, 9, 0, 100);
+$array = array(1000, 3, 7, 2, 8, 1, 9, 0, 100, 200, 800, 15000);
 var_dump(mySort($array));
+echo "<br>";
+echo "<br>";
+
+var_dump(newArray($array));
 
 /**
  * @param array $array
@@ -47,6 +51,21 @@ function myDel(array $array, $element)
             unset($array[$key]);
         }
     }
-
     return $array;
+}
+
+/**
+ * @param array $array
+ * @return array
+ */
+function newArray(array $array)
+{
+    $i = 1;
+    $result = array();
+    while (count($array) - $i >= 0) {
+        $key = count($array) - $i;
+        $result[] = $array[$key];
+        $i = $i + 1;
+    }
+    return $result;
 }
