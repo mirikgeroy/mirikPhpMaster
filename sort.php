@@ -1,11 +1,19 @@
 <?php
 
-$array = array(1000, 3, 7, 2, 8, 1, 9, 0, 100, 200, 800, 15000);
-var_dump(mySort($array));
+$array = array(100, 2, 3, 1);
+$sortedArray = mySort($array);
+var_dump($sortedArray);
 echo "<br>";
 echo "<br>";
+var_dump(newArray($sortedArray));
+echo "<br>";
+echo "<br>";
+var_dump(shorter($sortedArray));
+echo "<br>";
+echo "<br>";
+print_r(ranArray());
 
-var_dump(newArray($array));
+
 
 /**
  * @param array $array
@@ -60,12 +68,57 @@ function myDel(array $array, $element)
  */
 function newArray(array $array)
 {
-    $i = 1;
+    $i = count($array) - 1;
     $result = array();
-    while (count($array) - $i >= 0) {
-        $key = count($array) - $i;
-        $result[] = $array[$key];
-        $i = $i + 1;
+
+    while ($i >= 0) {
+        $result[] = $array[$i];
+        $i--;
+    }
+    return $result;
+}
+
+/**
+ * @param array $array
+ * @return int
+ */
+function averArray(array $array)
+{
+    $i = count($array) - 1;
+    $sum = 0;
+    while ($i >= 0) {
+        $sum = $array[$i] + $sum;
+        $i--;
+    }
+
+    return $sum / count($array);
+}
+
+/**
+ * @param array $array
+ * @return int
+ */
+function shorter(array $array)
+{
+    $sum = 0;
+    foreach ($array as $element) {
+        $sum += $element;//  $sum=$sum+$element;
+    }
+    $random=rand(1,100); // funkciya vertae vipadkove chislo
+    return round($sum / count($array)); //function round - okruglyae
+}
+
+/**
+ * @return array
+ */
+function ranArray ()
+{
+    $result = array();
+    $i=0;
+    while ($i<100)
+    {
+        $result[] = rand(1,100);
+        $i++;
     }
     return $result;
 }
