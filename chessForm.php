@@ -14,13 +14,12 @@ $checked = isset($_POST['enter']) ? 'checked' : '';
     <form action="chessForm.php" method="POST" name="form">
         кількість занятих полів:<input type="text" name="count" value="<?php echo $count ?>"><br>
         виводити зайняті поля на доску:<input type="checkbox" name="enter" <?php echo $checked ?>><br>
-        координата коня Y:<input type="text" name="koord1" value="<?php echo $_POST['koord1'] ?>">
-        координата коня X:<input type="text" name="koord2" value="<?php echo $_POST['koord2'] ?>">
+        координата коня Y:<input type="text" name="koord1" value="<?php echo isset($_POST['koord1'])?:'' ?>">
+        координата коня X:<input type="text" name="koord2" value="<?php echo isset($_POST['koord2'])?:'' ?>">
         <input name="submit" type="submit">
     </form>
 <?php
-$x = $_POST['koord1'];
-$y = $_POST['koord2'];
+
 $board = boardFill($count);
 $map = getMap();
 if (isset($_POST['enter'])) {
@@ -32,12 +31,12 @@ if (isset($_POST['enter'])) {
 
 echo '<div style="float: left">' . renderBoard($board) . '</div>';
 if (isset($_POST['koord1']) && isset($_POST['koord2'])) {
-
+    $x = $_POST['koord1'];
+    $y = $_POST['koord2'];
     $board[$map[$x]][$y] = 3;
     $canRun = canrun($x, $y);
     $horsePosition=maxShape($canRun, $board);
     $board = insertShapes([$horsePosition], $board, 3);
-
 }
 echo renderBoard($board);
 

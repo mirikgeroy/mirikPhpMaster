@@ -160,7 +160,6 @@ function maxShape(array $shapeCoordinates, array $board)
 {
     $maxKoord = [1, 1];
     $maxValue = 0;
-//    $Map=getMap()[1];
     foreach ($shapeCoordinates as $coordinate) {
         $value = $board[getMap()[$coordinate[0]]][$coordinate[1]];
         if ($maxValue < $value) {
