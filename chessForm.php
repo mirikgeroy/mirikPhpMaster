@@ -14,8 +14,10 @@ $checked = isset($_POST['enter']) ? 'checked' : '';
     <form action="chessForm.php" method="POST" name="form">
         кількість занятих полів:<input type="text" name="count" value="<?php echo $count ?>"><br>
         виводити зайняті поля на доску:<input type="checkbox" name="enter" <?php echo $checked ?>><br>
-        координата коня Y:<input type="text" name="koord1" value="<?php echo isset($_POST['koord1'])?:'' ?>">
-        координата коня X:<input type="text" name="koord2" value="<?php echo isset($_POST['koord2'])?:'' ?>">
+        координата коня Y:
+        <input type="text" name="koord1" value="<?php echo isset($_POST['koord1'])?$_POST['koord1']:'' ?>">
+        координата коня X:
+        <input type="text" name="koord2" value="<?php echo isset($_POST['koord2'])?$_POST['koord2']:'' ?>">
         <input name="submit" type="submit">
     </form>
 <?php
