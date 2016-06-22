@@ -33,26 +33,32 @@ function boardFill($p)
 function renderBoard(array $board)
 {
     $result = '<table border="1" align="center" >';
+    $result .= '<tr>';
+    $result .= '<td></td>';
+    for ($i = 1; $i <= 8; $i++) {
+        $result .= "<td align='center'>$i</td >";
+    }
+    $result .= ' </tr > ';
     $cellSize = 50;
-    foreach ($board as $row) {
-        $result .= '<tr>'; //
+    foreach ($board as $key => $row) {
+        $result .= '<tr > ';
+        $result .= "<td>$key</td>";
         foreach ($row as $cell) {
             if ($cell == '0') {
-                $result .= renderCell($cellSize, 'green');
-            }
-            if ($cell == 'X') {
-                $result .= renderCell($cellSize, 'red');
-            }
-            if ($cell == '2') {
-                $result .= renderCell($cellSize, 'brown');
-            }
-            if ($cell == '3') {
-                $result .= renderCell($cellSize, 'pink');
+                $result .= renderCell($cell, $cellSize, 'green');
+            } elseif ($cell == 'X') {
+                $result .= renderCell($cell, $cellSize, 'red');
+            } elseif ($cell == '2') {
+                $result .= renderCell($cell, $cellSize, 'brown');
+            } elseif ($cell == '3') {
+                $result .= renderCell($cell, $cellSize, 'pink');
+            } else {
+                $result .= renderCell($cell, $cellSize, 'yellow');
             }
         }
-        $result .= '</tr>';
+        $result .= ' </tr > ';
     }
-    $result .= '</table>';
+    $result .= '</table > ';
 
     return $result;
 }
@@ -74,12 +80,13 @@ function generator($cellsCount)
 
 /**
  * @param integer $cellSize
+ * @param integer $cell
  * @param string $color
  * @return string
  */
-function renderCell($cellSize, $color)
+function renderCell($cell, $cellSize, $color)
 {
-    return "<td height='$cellSize' width='$cellSize' style='background: $color'></td>";
+    return "<td height='$cellSize' width='$cellSize' style='background: $color' align='center'>$cell</td>";
 }
 
 /**
@@ -127,7 +134,7 @@ function canrun($x, $y)
  * @param $y
  * @param $i
  * @param $j
- * @param $canrun
+ * @param array $canrun
  * @return array
  */
 function getCoord($x, $y, $i, $j, $canrun)
@@ -149,3 +156,17 @@ function getMap()
     return array(1 => "a", 2 => "b", 3 => "c", 4 => "d", 5 => "e", 6 => "f", 7 => "g", 8 => "h");
 }
 
+function maxShape(array $shapeCoordinates, array $board)
+{
+    $maxKoord = [1, 1];
+    $maxValue = 0;
+//    $Map=getMap()[1];
+    foreach ($shapeCoordinates as $coordinate) {
+        $value = $board[getMap()[$coordinate[0]]][$coordinate[1]];
+        if ($maxValue < $value) {
+            $maxKoord = $coordinate;
+            $maxValue = $value;
+        }
+    }
+    return $maxKoord;
+}
